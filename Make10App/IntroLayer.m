@@ -134,7 +134,7 @@ CCSprite* _about;
 
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSNumber* makeValue = [defaults objectForKey:PREF_MAKE_VALUE];
-    NSString* titleTxt = [NSString stringWithFormat:@"Make %d", [makeValue intValue]];
+    NSString* titleTxt = [NSString stringWithFormat:@"Make %d+", [makeValue intValue]];
 	CCLabelTTF* title = [CCLabelTTF labelWithString:titleTxt fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
     title.color = ccc3(0, 0, 0);
     title.position = ccp(winSize.width / 2, winSize.height - [Make10Util getMarginTop] - [Make10Util getUpperLabelPadding] - [Make10Util getScoreLabelHeight] / 2);

@@ -211,7 +211,7 @@
 		910CA95716B6C9A3006BB0CD /* Wall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wall.m; sourceTree = "<group>"; };
 		911368B716BD5FE400374AA6 /* LevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayer.h; sourceTree = "<group>"; };
 		911368B816BD5FE400374AA6 /* LevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelLayer.m; sourceTree = "<group>"; };
-		915FEDEC16B30B7E0045A15A /* Make10App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Make10App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		915FEDEC16B30B7E0045A15A /* Make10Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Make10Plus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		915FEDF016B30B7E0045A15A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		915FEDF216B30B7E0045A15A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		915FEDF416B30B7E0045A15A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -562,7 +562,7 @@
 		915FEDED16B30B7E0045A15A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				915FEDEC16B30B7E0045A15A /* Make10App.app */,
+				915FEDEC16B30B7E0045A15A /* Make10Plus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -985,9 +985,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		915FEDEB16B30B7E0045A15A /* Make10App */ = {
+		915FEDEB16B30B7E0045A15A /* Make10Plus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 915FEF8516B30B800045A15A /* Build configuration list for PBXNativeTarget "Make10App" */;
+			buildConfigurationList = 915FEF8516B30B800045A15A /* Build configuration list for PBXNativeTarget "Make10Plus" */;
 			buildPhases = (
 				915FEDE816B30B7E0045A15A /* Sources */,
 				915FEDE916B30B7E0045A15A /* Frameworks */,
@@ -997,9 +997,9 @@
 			);
 			dependencies = (
 			);
-			name = Make10App;
+			name = Make10Plus;
 			productName = Make10App;
-			productReference = 915FEDEC16B30B7E0045A15A /* Make10App.app */;
+			productReference = 915FEDEC16B30B7E0045A15A /* Make10Plus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1010,7 +1010,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = 915FEDE616B30B7E0045A15A /* Build configuration list for PBXProject "Make10App" */;
+			buildConfigurationList = 915FEDE616B30B7E0045A15A /* Build configuration list for PBXProject "Make10Plus" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1022,7 +1022,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				915FEDEB16B30B7E0045A15A /* Make10App */,
+				915FEDEB16B30B7E0045A15A /* Make10Plus */,
 			);
 		};
 /* End PBXProject section */
@@ -1264,6 +1264,7 @@
 				GCC_PREFIX_HEADER = Make10App/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Make10App/libs/kazmath/include\"";
 				INFOPLIST_FILE = Make10App/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Make10App/TestFlightSDK1.2\"",
@@ -1272,7 +1273,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Make10Plus;
 				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
@@ -1290,6 +1291,7 @@
 				GCC_PREFIX_HEADER = Make10App/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Make10App/libs/kazmath/include\"";
 				INFOPLIST_FILE = Make10App/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Make10App/TestFlightSDK1.2\"",
@@ -1298,7 +1300,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Make10Plus;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = NO;
@@ -1309,7 +1311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		915FEDE616B30B7E0045A15A /* Build configuration list for PBXProject "Make10App" */ = {
+		915FEDE616B30B7E0045A15A /* Build configuration list for PBXProject "Make10Plus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				915FEF8316B30B800045A15A /* Debug */,
@@ -1318,7 +1320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		915FEF8516B30B800045A15A /* Build configuration list for PBXNativeTarget "Make10App" */ = {
+		915FEF8516B30B800045A15A /* Build configuration list for PBXNativeTarget "Make10Plus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				915FEF8616B30B800045A15A /* Debug */,
