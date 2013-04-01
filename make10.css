@@ -3,7 +3,7 @@ body {
     color: #000;
     font-size: 20px;
     line-height: 24px;
-    font-family: sans-serif;
+    font-family: Georgia,Serif;
 }
 
 #container {
@@ -24,6 +24,7 @@ body {
 /*    margin-top: 48px;*/
     position: relative;
     text-align: center; 
+    font-family: Verdana,sans-serif;
 }
 
 .tagline {
