@@ -1,4 +1,4 @@
-Make10App
-=========
+Make10Plus
+==========
 
-A kid's mental math addition game for iOS
+A free kid's math game for iOS
