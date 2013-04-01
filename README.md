@@ -1,4 +1,6 @@
 Make10Plus
 ==========
 
-A free kid's math game for iOS
+This is the source for the Make10Plus website.
+
+Visit the site at **[bsiegal.github.com/Make10Plus](http://bsiegal.github.com/Make10Plus).**
