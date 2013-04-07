@@ -18,10 +18,13 @@
 
 #import "SettingsLayer.h"
 #import "IntroLayer.h"
+#import "Make10AppLayer.h"
 #import <UIKit/UIKit.h>
 #import "SimpleAudioEngine.h"
 
 @implementation SettingsLayer
+@synthesize swipeRightRecognizer = _swipeRightRecognizer;
+@synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
 
 UIPickerView*      _makeValuePicker;
 NSMutableArray*    _makeValueArray;
@@ -247,6 +250,16 @@ CCSprite*          _home;
     
 }
 
+#pragma mark Swipe
+
+-(void) handleRightSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [self homeAction];
+}
+
+-(void) handleLeftSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [self playAction];
+}
+
 #pragma mark Touches
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -283,11 +296,29 @@ CCSprite*          _home;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:LAYER_TRANS_TIME scene:[IntroLayer scene]]];
     
 }
-//-(void) onExit {
-//    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"girlBg.plist"];
-//    [super onExit];
-//}
 
+-(void) playAction {
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:[Make10AppLayer scene]]];
+    
+}
+
+-(void) onEnter {
+    [super onEnter];
+    self.swipeRightRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipe:)] autorelease];
+    _swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:_swipeRightRecognizer];
+
+    self.swipeLeftRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipe:)] autorelease];
+    _swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:_swipeLeftRecognizer];
+
+}
+
+-(void) onExit {
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:_swipeRightRecognizer];
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:_swipeLeftRecognizer];
+    [super onExit];
+}
 
 -(void) dealloc {
 //    NSLog(@"Settings dealloc");
@@ -319,8 +350,15 @@ CCSprite*          _home;
 
     [_styleToggle removeFromParentAndCleanup:YES];
     _styleToggle = nil;
-
+    
+    [_swipeRightRecognizer release];
+    _swipeRightRecognizer = nil;
+    
+    [_swipeLeftRecognizer release];
+    _swipeLeftRecognizer = nil;
+    
     [self removeFromParentAndCleanup:YES];
+    
     [super dealloc];
 }
 @end

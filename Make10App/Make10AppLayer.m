@@ -35,6 +35,7 @@
 
 // Make10AppLayer implementation
 @implementation Make10AppLayer
+@synthesize swipeRightRecognizer = _swipeRightRecognizer;
 
 int         _makeValue;
 Wall*       _wall;
@@ -47,7 +48,7 @@ CCSprite*   _gain;
 CCLabelTTF* _gainLabel;
 LevelLayer* _levelLayer;
 Progress*   _progressBar;
-CCSprite*   _home;
+//CCSprite*   _home;
 
 
 // Helper class method that creates a Scene with the Make10AppLayer as the only child.
@@ -291,6 +292,12 @@ CCSprite*   _home;
 
 	}
 	return self;
+}
+
+#pragma mark Swipe
+
+-(void) handleRightSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [self pauseAction];
 }
 
 #pragma mark Touches
@@ -661,10 +668,18 @@ CCSprite*   _home;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:gameOverScene]];
 }
 
-//-(void) onExit {
-//    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"playBg.plist"];
-//    [super onExit];
-//}
+-(void) onEnter {
+    [super onEnter];
+    self.swipeRightRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipe:)] autorelease];
+    _swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:_swipeRightRecognizer];
+    
+}
+
+-(void) onExit {
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:_swipeRightRecognizer];
+    [super onExit];
+}
 
 
 // on "dealloc" you need to release all your retained objects

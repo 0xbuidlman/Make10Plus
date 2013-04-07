@@ -25,10 +25,13 @@
 #import "LevelLayerDelegate.h"
 
 // Make10AppLayer
-@interface Make10AppLayer : CCLayer<LevelLayerDelegate>
-{
+@interface Make10AppLayer : CCLayer<LevelLayerDelegate> {
+    UISwipeGestureRecognizer *_swipeRightRecognizer;
 }
+
+@property (retain) UISwipeGestureRecognizer *swipeRightRecognizer;
 @property BOOL pauseLayerShowing;
+@property (nonatomic, retain) CCSprite* home;
 
 -(void) showLevelLayerWithPause:(BOOL)pause;
 

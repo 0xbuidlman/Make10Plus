@@ -18,8 +18,11 @@
 
 #import "cocos2d.h"
 
-@interface AboutLayer : CCLayer <UIWebViewDelegate>
+@interface AboutLayer : CCLayer <UIWebViewDelegate> {
+    UISwipeGestureRecognizer *_swipeRightRecognizer;
+}
 
+@property (retain) UISwipeGestureRecognizer *swipeRightRecognizer;
 /**
  * returns a CCScene that contains the IntroLayer as the only child
  */

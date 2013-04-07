@@ -42,6 +42,7 @@
 
 
 @implementation GameOverLayer
+@synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
 
 CCLabelTTF* _yourScore;
 CCLabelTTF* _hiScore;
@@ -115,6 +116,19 @@ CCLabelTTF* _hiScore;
 
 }
 
+- (void)onEnter {
+    [super onEnter];
+    self.swipeLeftRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipe:)] autorelease];
+    _swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:_swipeLeftRecognizer];
+}
+
+#pragma mark Swipe
+
+-(void) handleLeftSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [self homeAction];
+}
+
 #pragma mark Touches
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -141,10 +155,10 @@ CCLabelTTF* _hiScore;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:[IntroLayer scene]]];
     
 }
-//-(void) onExit {
-//    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"gameOverBg.plist"];
-//    [super onExit];
-//}
+- (void)onExit {
+    [super onExit];
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:_swipeLeftRecognizer];
+}
 
 -(void) dealloc {
 //    NSLog(@"GameOverScene dealloc");
@@ -156,6 +170,9 @@ CCLabelTTF* _hiScore;
     _hiScore = nil;
     [_home removeFromParentAndCleanup:YES];
     _home = nil;
+    
+    [_swipeLeftRecognizer release];
+    _swipeLeftRecognizer = nil;
     
     [self removeFromParentAndCleanup:YES];
     [super dealloc];

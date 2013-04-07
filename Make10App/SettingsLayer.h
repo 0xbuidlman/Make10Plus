@@ -18,9 +18,13 @@
 
 #import "cocos2d.h"
 
-@interface SettingsLayer : CCLayer <UIPickerViewDelegate>
-{
+@interface SettingsLayer : CCLayer <UIPickerViewDelegate> {
+    UISwipeGestureRecognizer *_swipeLeftRecognizer;
+    UISwipeGestureRecognizer *_swipeRightRecognizer;
 }
+
+@property (retain) UISwipeGestureRecognizer *swipeRightRecognizer;
+@property (retain) UISwipeGestureRecognizer *swipeLeftRecognizer;
 
 /**
  * returns a CCScene that contains the SettingsLayer as the only child

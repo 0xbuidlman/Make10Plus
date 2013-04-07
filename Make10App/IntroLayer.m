@@ -27,6 +27,7 @@
 #pragma mark - IntroLayer
 
 @implementation IntroLayer
+@synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
 
 CCSprite* _settings;
 CCSprite* _about;
@@ -168,12 +169,15 @@ CCSprite* _about;
     
     self.isTouchEnabled = YES;
     
+    self.swipeLeftRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipe:)] autorelease];
+    _swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:_swipeLeftRecognizer];
 }
-
--(void) playAction {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click.m4a"];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:[Make10AppLayer scene]]];
-
+    
+#pragma mark Swipe
+    
+-(void) handleLeftSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [self settingsAction];
 }
 
 #pragma mark Touches
@@ -205,6 +209,12 @@ CCSprite* _about;
     [Make10Util touchSpriteEnded:_about];
 }
 
+-(void) playAction {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.m4a"];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:[Make10AppLayer scene]]];
+    
+}
+
 -(void) settingsAction {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:[SettingsLayer scene]]];
 }
@@ -212,11 +222,11 @@ CCSprite* _about;
 -(void) aboutAction {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:LAYER_TRANS_TIME scene:[AboutLayer scene]]];
 }
-//
-//-(void) onExit {
-//    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"introBg.plist"];
-//    [super onExit];
-//}
+
+-(void) onExit {
+    [super onExit];
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:_swipeLeftRecognizer];
+}
 
 -(void) dealloc {
     
@@ -228,6 +238,10 @@ CCSprite* _about;
     [_about removeFromParentAndCleanup:YES];
     _about = nil;
     
+    [_swipeLeftRecognizer release];
+    _swipeLeftRecognizer = nil;
+    
+
     [self removeFromParentAndCleanup:YES];
     [super dealloc];
 }

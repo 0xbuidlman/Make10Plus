@@ -18,7 +18,10 @@
 
 #import "cocos2d.h"
 
-@interface GameOverLayer : CCLayer
+@interface GameOverLayer : CCLayer {
+    UISwipeGestureRecognizer *_swipeLeftRecognizer;
+}
+@property (retain) UISwipeGestureRecognizer *swipeLeftRecognizer;
 @property (nonatomic, retain) CCSprite* home;
 /**
  * The score to show

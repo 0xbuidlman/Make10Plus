@@ -21,6 +21,7 @@
 #import "SimpleAudioEngine.h"
 
 @implementation AboutLayer
+@synthesize swipeRightRecognizer = _swipeRightRecognizer;
 
 UIWebView* _webView;
 CCSprite*  _home;
@@ -89,6 +90,12 @@ CCSprite*  _home;
     return self;
 }
 
+#pragma mark Swipe
+
+-(void) handleRightSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [self homeAction];
+}
+
 #pragma mark Touches
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -133,6 +140,14 @@ CCSprite*  _home;
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:LAYER_TRANS_TIME scene:[IntroLayer scene]]];
 }
 
+-(void) onEnter {
+    [super onEnter];
+    self.swipeRightRecognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipe:)] autorelease];
+    _swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:_swipeRightRecognizer];
+    
+}
+
 -(void) onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
 
@@ -152,10 +167,10 @@ CCSprite*  _home;
     [super onExitTransitionDidStart];
 }
 
-//-(void) onExit {
-//    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFramesFromFile:@"boyBg.plist"];
-//    [super onExit];
-//}
+-(void) onExit {
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:_swipeRightRecognizer];
+    [super onExit];
+}
 
 -(void) dealloc {
     self.isTouchEnabled = NO;
@@ -167,6 +182,9 @@ CCSprite*  _home;
     
     [_home removeFromParentAndCleanup:YES];
     _home = nil;
+    
+    [_swipeRightRecognizer release];
+    _swipeRightRecognizer = nil;
     
     [self removeFromParentAndCleanup:YES];
     [super dealloc];
