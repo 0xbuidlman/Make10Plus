@@ -7,7 +7,7 @@
             <key>about.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{36,780},{24,32}}</string>
+                <string>{{36,814},{24,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -202,7 +202,7 @@
             <key>gain.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{36,814},{25,25}}</string>
+                <string>{{36,848},{25,25}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -226,6 +226,19 @@
                 <string>{320,480}</string>
             </dict>
             <key>home.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{36,780},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>pause.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{44,680},{32,32}}</string>
@@ -313,7 +326,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:071969a4debe0562205787fcff3ab818$</string>
+            <string>$TexturePacker:SmartUpdate:d4d705eac527f02e0301b6015f8ffc3b$</string>
             <key>textureFileName</key>
             <string>Make10Sprites.pvr.ccz</string>
         </dict>

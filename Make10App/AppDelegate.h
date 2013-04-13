@@ -22,14 +22,14 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {
-	UIWindow *window_;
-	UINavigationController *navController_;
+	UIWindow* window_;
+	UINavigationController* navController_;
 
-	CCDirectorIOS	*director_;							// weak ref
+	CCDirectorIOS* director_;							// weak ref
 }
 
-@property (nonatomic, retain) UIWindow *window;
-@property (readonly) UINavigationController *navController;
-@property (readonly) CCDirectorIOS *director;
+@property (nonatomic, retain) UIWindow* window;
+@property (readonly) UINavigationController* navController;
+@property (readonly) CCDirectorIOS* director;
 
 @end

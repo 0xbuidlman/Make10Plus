@@ -177,6 +177,7 @@ CCSprite* _about;
 #pragma mark Swipe
     
 -(void) handleLeftSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"currentToWall.m4a"];
     [self settingsAction];
 }
 

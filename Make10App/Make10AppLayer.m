@@ -262,6 +262,23 @@ Progress*   _progressBar;
 
 }
 
+-(void) addPause {
+    
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+    
+    /*
+     * Re-add to the sprite frame cache in case there was a memory warning and it got cleared
+     */
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Make10Sprites.plist"];
+    
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    _home = [CCSprite spriteWithSpriteFrameName:@"pause.png"];
+    _home.position = ccp(winSize.width - [Make10Util getMarginSide] - _home.contentSize.width / 2 - [Make10Util getUpperLabelPadding], winSize.height - [Make10Util getMarginTop] - _home.contentSize.height / 2 - [Make10Util getUpperLabelPadding]);
+    
+    [self addChild:_home];
+}
+
 #pragma mark init
 
 // on "init" you need to initialize your instance
@@ -274,8 +291,9 @@ Progress*   _progressBar;
         CCSprite* background = [Make10Util genLayerBackgroundWithName:@"playBg"];
         [self addChild:background];
         
-        _home = [Make10Util createHomeSprite];
-        [self addChild:_home];
+//        _home = [Make10Util createHomeSprite];
+//        [self addChild:_home];
+        [self addPause];
         
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         NSNumber* makeValue = [defaults objectForKey:PREF_MAKE_VALUE];
@@ -297,6 +315,7 @@ Progress*   _progressBar;
 #pragma mark Swipe
 
 -(void) handleRightSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"currentToWall.m4a"];
     [self pauseAction];
 }
 

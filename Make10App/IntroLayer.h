@@ -22,9 +22,9 @@
 #import "Make10Util.h"
 
 @interface IntroLayer : CCLayer {
-    UISwipeGestureRecognizer *_swipeLeftRecognizer;
+    UISwipeGestureRecognizer* _swipeLeftRecognizer;
 }
-@property (retain) UISwipeGestureRecognizer *swipeLeftRecognizer;
+@property (retain) UISwipeGestureRecognizer* swipeLeftRecognizer;
 /**
  * returns a CCScene that contains the IntroLayer as the only child
  */

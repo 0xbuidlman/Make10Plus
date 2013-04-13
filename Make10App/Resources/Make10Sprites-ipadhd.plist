@@ -33,7 +33,7 @@
             <key>button-short.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3338,2},{640,152}}</string>
+                <string>{{3440,2},{640,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>buttonPressed-short.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2696,2},{640,152}}</string>
+                <string>{{2798,2},{640,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,11 +85,11 @@
             <key>dot1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3180,156},{160,240}}</string>
+                <string>{{2566,244},{160,240}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{160,240}}</string>
                 <key>sourceSize</key>
@@ -98,7 +98,7 @@
             <key>dot2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2938,156},{160,240}}</string>
+                <string>{{2798,156},{160,240}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,11 +111,11 @@
             <key>dot3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2696,156},{160,240}}</string>
+                <string>{{2566,2},{160,240}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{160,240}}</string>
                 <key>sourceSize</key>
@@ -202,7 +202,7 @@
             <key>gain.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2591,1802},{100,100}}</string>
+                <string>{{2696,1932},{100,100}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -228,13 +228,26 @@
             <key>home.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2465,1802},{128,124}}</string>
+                <string>{{2595,1802},{128,124}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,2},{128,124}}</string>
+                <key>sourceSize</key>
+                <string>{128,128}</string>
+            </dict>
+            <key>pause.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2465,1802},{128,128}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{128,128}}</string>
                 <key>sourceSize</key>
                 <string>{128,128}</string>
             </dict>
@@ -313,7 +326,7 @@
             <key>size</key>
             <string>{4096,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d69c3e80a384fb84824779ef808d9b96$</string>
+            <string>$TexturePacker:SmartUpdate:84afafb3c28b3b2026e304afe2516038$</string>
             <key>textureFileName</key>
             <string>Make10Sprites-ipadhd.pvr.ccz</string>
         </dict>
