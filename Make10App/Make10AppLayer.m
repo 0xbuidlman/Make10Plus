@@ -315,8 +315,10 @@ Progress*   _progressBar;
 #pragma mark Swipe
 
 -(void) handleRightSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"currentToWall.m4a"];
-    [self pauseAction];
+    if (!_levelLayer) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"currentToWall.m4a"];
+        [self pauseAction];
+    }
 }
 
 #pragma mark Touches
