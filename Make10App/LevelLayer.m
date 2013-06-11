@@ -62,12 +62,12 @@ CCMenu*     _menu;
         /*
          * Play button
          */
-        CCMenuItemSprite* play = [Make10Util createButtonWithText:@"Resume" target:self selector:@selector(playAction)];
+        CCMenuItemSprite* play = [Make10Util createButtonWithText:NSLocalizedString(@"Resume", nil) target:self selector:@selector(playAction)];
         
         /*
          * Home button
          */
-        CCMenuItemSprite* home = [Make10Util createButtonWithText:@"Start over" target:self selector:@selector(homeAction)];
+        CCMenuItemSprite* home = [Make10Util createButtonWithText:NSLocalizedString(@"Start over", nil) target:self selector:@selector(homeAction)];
         
         float x = winSize.width / 2 + play.contentSize.width / 2 - [Make10Util getUpperLabelPadding];
         /*
@@ -78,12 +78,12 @@ CCMenu*     _menu;
         [self addChild:_menu];
         [_menu alignItemsVerticallyWithPadding:[Make10Util getResumeMenuPadding]];
         
-        _getReady = [CCLabelTTF labelWithString:@"Get ready!" fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
+        _getReady = [CCLabelTTF labelWithString:NSLocalizedString(@"Get ready!", nil) fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
 //        _getReady.color = ccc3(0, 0, 0);
         _getReady.position = ccp(x, winSize.height * 0.6);
         [self addChild:_getReady];
 
-        _levelLabel = [CCLabelTTF labelWithString:@"Level 2" fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
+        _levelLabel = [CCLabelTTF labelWithString:NSLocalizedString(@"Level 2", nil) fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
         _levelLabel.color = ccc3(0, 0, 0);
         _levelLabel.position = ccp(x, [Make10Util getLevelLabelPosition]);
         [self addChild:_levelLabel];
@@ -98,11 +98,11 @@ CCMenu*     _menu;
 }
 
 -(void) setLevel:(int)level {
-    [_levelLabel setString:[NSString stringWithFormat:@"Level %d", level]];
+    [_levelLabel setString:[NSString stringWithFormat:NSLocalizedString(@"Level %d", nil), level]];
 }
 
 -(void) setMakeValue:(int)makeValue {
-    [_makeValueLabel setString:[NSString stringWithFormat:@"Make %d", makeValue]];
+    [_makeValueLabel setString:[NSString stringWithFormat:NSLocalizedString(@"Make %d", nil), makeValue]];
 }
 
 -(void) setPause:(BOOL)pause {

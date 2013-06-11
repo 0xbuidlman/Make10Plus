@@ -62,7 +62,7 @@ CCSprite*          _home;
         // ask director for the window size
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
-        CCLabelTTF* text = [CCLabelTTF labelWithString:@"Settings" fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
+        CCLabelTTF* text = [CCLabelTTF labelWithString:NSLocalizedString(@"Settings", nil) fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
         text.color = ccc3(0, 0, 0);
         text.position = ccp(winSize.width / 2, winSize.height - [Make10Util getMarginTop] - [Make10Util getUpperLabelPadding] - [Make10Util getScoreLabelHeight] / 2);
         // add the label as a child to this Layer
@@ -103,17 +103,17 @@ CCSprite*          _home;
         /*
          * Make value as a button that will show the picker view
          */
-        NSString* makeString = [NSString stringWithFormat:@"Make %d", [makeValue intValue]];
+        NSString* makeString = [NSString stringWithFormat:NSLocalizedString(@"Make %d", nil), [makeValue intValue]];
         _makeValueToggle = [Make10Util createButtonWithText:makeString target:self selector:@selector(makeValueAction)];
         
         /*
          * Starting level as a toggle
          */
-        CCMenuItemSprite* level1 = [Make10Util createToggleWithText:@"Level 1"];
-        CCMenuItemSprite* level2 = [Make10Util createToggleWithText:@"Level 2"];
-        CCMenuItemSprite* level3 = [Make10Util createToggleWithText:@"Level 3"];
-        CCMenuItemSprite* level4 = [Make10Util createToggleWithText:@"Level 4"];
-        CCMenuItemSprite* level5 = [Make10Util createToggleWithText:@"Level 5"];
+        CCMenuItemSprite* level1 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 1", nil)];
+        CCMenuItemSprite* level2 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 2", nil)];
+        CCMenuItemSprite* level3 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 3", nil)];
+        CCMenuItemSprite* level4 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 4", nil)];
+        CCMenuItemSprite* level5 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 5", nil)];
         
         _levelToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggled:) items:level1, level2, level3, level4, level5, nil];
         NSNumber* level = [defaults objectForKey:PREF_START_LEVEL];
@@ -133,8 +133,8 @@ CCSprite*          _home;
         /*
          * Challenge type as a toggle 
          */
-        CCMenuItemSprite* buttonSpeed = [Make10Util createToggleWithText:@"Speed increases"];
-        CCMenuItemSprite* buttonTotal = [Make10Util createToggleWithText:@"Sum changes"];
+        CCMenuItemSprite* buttonSpeed = [Make10Util createToggleWithText:NSLocalizedString(@"Speed increases", nil)];
+        CCMenuItemSprite* buttonTotal = [Make10Util createToggleWithText:NSLocalizedString(@"Sum changes", nil)];
 
         _challengeToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggled:) items:buttonSpeed, buttonTotal, nil];
         

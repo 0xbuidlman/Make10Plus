@@ -135,7 +135,8 @@ CCSprite* _about;
 
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSNumber* makeValue = [defaults objectForKey:PREF_MAKE_VALUE];
-    NSString* titleTxt = [NSString stringWithFormat:@"Make %d+", [makeValue intValue]];
+//    NSString* titleTxt = [NSString stringWithFormat:@"Make %d+", [makeValue intValue]];
+    NSString* titleTxt = [NSString stringWithFormat:NSLocalizedString(@"Make %d+", nil), [makeValue intValue]];
 	CCLabelTTF* title = [CCLabelTTF labelWithString:titleTxt fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
     title.color = ccc3(0, 0, 0);
     title.position = ccp(winSize.width / 2, winSize.height - [Make10Util getMarginTop] - [Make10Util getUpperLabelPadding] - [Make10Util getScoreLabelHeight] / 2);
@@ -145,15 +146,7 @@ CCSprite* _about;
     /*
      * Play button
      */
-    CCMenuItemSprite* play = [Make10Util createPlayButtonWithText:@"Play" target:self selector:@selector(playAction)];
-//    /*
-//     * Settings button
-//     */
-//    CCMenuItemSprite* settings = [Make10Util createButtonWithText:@"Settings" target:self selector:@selector(settingsAction)];
-//    /*
-//     * About button
-//     */
-//    CCMenuItemSprite* about = [Make10Util createButtonWithText:@"About" target:self selector:@selector(aboutAction)];
+    CCMenuItemSprite* play = [Make10Util createPlayButtonWithText:NSLocalizedString(@"Play", nil) target:self selector:@selector(playAction)];
     
     /*
      * Create the menu

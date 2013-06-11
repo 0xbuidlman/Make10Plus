@@ -39,6 +39,8 @@
 		3CEF052616DD2FB500351658 /* currentToWall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3CEF052116DD2FB500351658 /* currentToWall.m4a */; };
 		3CEF052716DD2FB500351658 /* knock.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3CEF052216DD2FB500351658 /* knock.m4a */; };
 		3CEF052A16DD2FB500351658 /* wallUp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3CEF052516DD2FB500351658 /* wallUp.m4a */; };
+		3CF78F2217353ED1008F4558 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CF78F2117353ED1008F4558 /* Localizable.strings */; };
+		3CF90E811766AA4D00CA78B5 /* coppa.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF90E801766AA4D00CA78B5 /* coppa.png */; };
 		910CA95816B6C9A3006BB0CD /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 910CA95716B6C9A3006BB0CD /* Wall.m */; };
 		911368B916BD5FE400374AA6 /* LevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911368B816BD5FE400374AA6 /* LevelLayer.m */; };
 		915FEDF116B30B7E0045A15A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915FEDF016B30B7E0045A15A /* QuartzCore.framework */; };
@@ -207,6 +209,8 @@
 		3CEF052116DD2FB500351658 /* currentToWall.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = currentToWall.m4a; path = Sounds/currentToWall.m4a; sourceTree = "<group>"; };
 		3CEF052216DD2FB500351658 /* knock.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = knock.m4a; path = Sounds/knock.m4a; sourceTree = "<group>"; };
 		3CEF052516DD2FB500351658 /* wallUp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = wallUp.m4a; path = Sounds/wallUp.m4a; sourceTree = "<group>"; };
+		3CF78F2117353ED1008F4558 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3CF90E801766AA4D00CA78B5 /* coppa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coppa.png; path = web/coppa.png; sourceTree = "<group>"; };
 		910CA95616B6C9A3006BB0CD /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		910CA95716B6C9A3006BB0CD /* Wall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wall.m; sourceTree = "<group>"; };
 		911368B716BD5FE400374AA6 /* LevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelLayer.h; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 		3C9CE63E16E24465004841C4 /* web */ = {
 			isa = PBXGroup;
 			children = (
+				3CF90E801766AA4D00CA78B5 /* coppa.png */,
 				3CCA3EB016EB9A3B00685600 /* dots.png */,
 				3CCA3EA816EB68D100685600 /* sample.png */,
 				3CCA3EA916EB68D100685600 /* valueMade.png */,
@@ -635,6 +640,7 @@
 				3C49EFC816EE32F2004DB39C /* iTunesArtwork */,
 				3C49EFC916EE32F2004DB39C /* iTunesArtwork@2x */,
 				915FEE1A16B30B7E0045A15A /* Info.plist */,
+				3CF78F2117353ED1008F4558 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1074,6 +1080,8 @@
 				3CCA3EB516EBF04E00685600 /* Icon-72@2x.png in Resources */,
 				3C49EFCA16EE32F2004DB39C /* iTunesArtwork in Resources */,
 				3C49EFCB16EE32F2004DB39C /* iTunesArtwork@2x in Resources */,
+				3CF78F2217353ED1008F4558 /* Localizable.strings in Resources */,
+				3CF90E811766AA4D00CA78B5 /* coppa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

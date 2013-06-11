@@ -64,7 +64,7 @@ CCLabelTTF* _hiScore;
         [self addChild:_yourScore];
         
 
-        CCLabelTTF* gameOver = [CCLabelTTF labelWithString:@"Game Over" fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
+        CCLabelTTF* gameOver = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over", nil) fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
 //        gameOver.color = ccc3(0, 0, 0);
         gameOver.position = ccp(winSize.width / 2, winSize.height * (0.8));
         [self addChild:gameOver];
@@ -99,17 +99,17 @@ CCLabelTTF* _hiScore;
     NSNumber* highScore = [defaults objectForKey:PREF_HIGH_SCORE];
     if (!highScore || score > [highScore intValue]) {
         
-        [_hiScore setString:@"Congratulations!\nA new high!"];
+        [_hiScore setString:NSLocalizedString(@"Congratulations!\nA new high!", nil)];
         
         [defaults setInteger:score forKey:PREF_HIGH_SCORE];
         
     } else if (score == [highScore intValue]) {
         
-        [_hiScore setString:@"Congratulations!\nTied the high!"];
+        [_hiScore setString:NSLocalizedString(@"Congratulations!\nTied the high!", nil)];
         
     } else {
         
-        [_hiScore setString:[NSString stringWithFormat:@"High score: %@", [formatter stringFromNumber:[NSNumber numberWithInt:[highScore intValue]]]]];
+        [_hiScore setString:[NSString stringWithFormat:NSLocalizedString(@"High score: %@", nil), [formatter stringFromNumber:[NSNumber numberWithInt:[highScore intValue]]]]];
     }
     
     [formatter release];

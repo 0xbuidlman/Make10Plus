@@ -207,7 +207,7 @@ Progress*   _progressBar;
     CCSprite* score = [Make10Util createWhiteBoxSprite];
     [self addChild:score];
     
-    _scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Make %d", _makeValue] fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
+    _scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:NSLocalizedString(@"Make %d", nil), _makeValue] fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
     _scoreLabel.color = ccc3(0, 0, 0);
     _scoreLabel.position = ccp(winSize.width / 2, winSize.height - [Make10Util getMarginTop] - [Make10Util getUpperLabelPadding] - [Make10Util getScoreLabelHeight] / 2);
     [self addChild:_scoreLabel];

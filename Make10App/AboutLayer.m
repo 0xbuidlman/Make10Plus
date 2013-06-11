@@ -52,7 +52,7 @@ CCSprite*  _home;
         CCSprite* score = [Make10Util createWhiteBoxSprite];
         [self addChild:score];
 
-        CCLabelTTF* text = [CCLabelTTF labelWithString:@"About" fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
+        CCLabelTTF* text = [CCLabelTTF labelWithString:NSLocalizedString(@"About", nil) fontName:@"American Typewriter" fontSize:[Make10Util getTitleFontSize]];
         text.color = ccc3(0, 0, 0);
         text.position = ccp(winSize.width / 2, winSize.height - [Make10Util getMarginTop] - [Make10Util getUpperLabelPadding] - [Make10Util getScoreLabelHeight] / 2);
         // add the label as a child to this Layer
@@ -76,7 +76,7 @@ CCSprite*  _home;
         /*
          * Add about
          */
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:NSLocalizedString(@"about", nil) ofType:@"html"];
         NSURL *url = [NSURL fileURLWithPath:path];
         
 //--does not work on iPad    NSURL *url = [[NSBundle mainBundle] URLForResource:@"about" withExtension:@".html"];
