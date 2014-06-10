@@ -32,6 +32,13 @@
 		3C88859116E2C390006A7DB7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 3C88859016E2C390006A7DB7 /* about.html */; };
 		3C88859316E2C3D8006A7DB7 /* make10.css in Resources */ = {isa = PBXBuildFile; fileRef = 3C88859216E2C3D8006A7DB7 /* make10.css */; };
 		3C88859516E2DEDB006A7DB7 /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3C88859416E2DEDB006A7DB7 /* click.m4a */; };
+		3CA1FA1A1947810B00A6AB5C /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA191947810B00A6AB5C /* Icon-120.png */; };
+		3CA1FA201947826400A6AB5C /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA1B1947826400A6AB5C /* Icon-40.png */; };
+		3CA1FA211947826400A6AB5C /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA1C1947826400A6AB5C /* Icon-80.png */; };
+		3CA1FA221947826400A6AB5C /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA1D1947826400A6AB5C /* Icon-100.png */; };
+		3CA1FA231947826400A6AB5C /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA1E1947826400A6AB5C /* Icon-120.png */; };
+		3CA1FA241947826400A6AB5C /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA1F1947826400A6AB5C /* Icon-152.png */; };
+		3CA1FA261947827500A6AB5C /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA1FA251947827500A6AB5C /* Icon-76.png */; };
 		3CCA3EAA16EB68D100685600 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA3EA816EB68D100685600 /* sample.png */; };
 		3CCA3EAB16EB68D100685600 /* valueMade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA3EA916EB68D100685600 /* valueMade.png */; };
 		3CCA3EB116EB9A3B00685600 /* dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA3EB016EB9A3B00685600 /* dots.png */; };
@@ -201,6 +208,13 @@
 		3C88859016E2C390006A7DB7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = about.html; path = web/about.html; sourceTree = "<group>"; };
 		3C88859216E2C3D8006A7DB7 /* make10.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = make10.css; path = web/make10.css; sourceTree = "<group>"; };
 		3C88859416E2DEDB006A7DB7 /* click.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = click.m4a; path = Sounds/click.m4a; sourceTree = "<group>"; };
+		3CA1FA191947810B00A6AB5C /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "Resources/Icon-120.png"; sourceTree = "<group>"; };
+		3CA1FA1B1947826400A6AB5C /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Resources/Icon-40.png"; sourceTree = "<group>"; };
+		3CA1FA1C1947826400A6AB5C /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-80.png"; path = "Resources/Icon-80.png"; sourceTree = "<group>"; };
+		3CA1FA1D1947826400A6AB5C /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-100.png"; path = "Resources/Icon-100.png"; sourceTree = "<group>"; };
+		3CA1FA1E1947826400A6AB5C /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "Resources/Icon-120.png"; sourceTree = "<group>"; };
+		3CA1FA1F1947826400A6AB5C /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-152.png"; path = "Resources/Icon-152.png"; sourceTree = "<group>"; };
+		3CA1FA251947827500A6AB5C /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76.png"; path = "Resources/Icon-76.png"; sourceTree = "<group>"; };
 		3CCA3EA816EB68D100685600 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sample.png; path = web/sample.png; sourceTree = "<group>"; };
 		3CCA3EA916EB68D100685600 /* valueMade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = valueMade.png; path = web/valueMade.png; sourceTree = "<group>"; };
 		3CCA3EB016EB9A3B00685600 /* dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dots.png; path = web/dots.png; sourceTree = "<group>"; };
@@ -631,12 +645,19 @@
 				3C717F4A16EA663000893043 /* Default@2x.png */,
 				3C717F4816EA650000893043 /* Default.png */,
 				3CCA3EB416EBF04E00685600 /* Icon-72@2x.png */,
+				3CA1FA191947810B00A6AB5C /* Icon-120.png */,
 				915FEE0E16B30B7E0045A15A /* Icon-72.png */,
 				915FEE1016B30B7E0045A15A /* Icon-Small-50.png */,
 				915FEE1216B30B7E0045A15A /* Icon-Small.png */,
 				915FEE1416B30B7E0045A15A /* Icon-Small@2x.png */,
 				915FEE1616B30B7E0045A15A /* Icon.png */,
 				915FEE1816B30B7E0045A15A /* Icon@2x.png */,
+				3CA1FA1B1947826400A6AB5C /* Icon-40.png */,
+				3CA1FA251947827500A6AB5C /* Icon-76.png */,
+				3CA1FA1C1947826400A6AB5C /* Icon-80.png */,
+				3CA1FA1D1947826400A6AB5C /* Icon-100.png */,
+				3CA1FA1E1947826400A6AB5C /* Icon-120.png */,
+				3CA1FA1F1947826400A6AB5C /* Icon-152.png */,
 				3C49EFC816EE32F2004DB39C /* iTunesArtwork */,
 				3C49EFC916EE32F2004DB39C /* iTunesArtwork@2x */,
 				915FEE1A16B30B7E0045A15A /* Info.plist */,
@@ -1057,6 +1078,7 @@
 				3CEF052716DD2FB500351658 /* knock.m4a in Resources */,
 				3CEF052A16DD2FB500351658 /* wallUp.m4a in Resources */,
 				3C5F0F3916DE4F680064CAEB /* gameOver1.m4a in Resources */,
+				3CA1FA231947826400A6AB5C /* Icon-120.png in Resources */,
 				3C5F0F3A16DE4F680064CAEB /* gameOver2.m4a in Resources */,
 				3C5F0F3B16DE4F680064CAEB /* gameOver3.m4a in Resources */,
 				3C88859116E2C390006A7DB7 /* about.html in Resources */,
@@ -1065,27 +1087,33 @@
 				3C717F4216EA361C00893043 /* Make10Sprites-hd.plist in Resources */,
 				3C717F4316EA361C00893043 /* Make10Sprites-hd.pvr.ccz in Resources */,
 				3C717F4416EA361C00893043 /* Make10Sprites-ipadhd.plist in Resources */,
+				3CA1FA221947826400A6AB5C /* Icon-100.png in Resources */,
 				3C717F4516EA361C00893043 /* Make10Sprites-ipadhd.pvr.ccz in Resources */,
 				3C717F4616EA361C00893043 /* Make10Sprites.plist in Resources */,
 				3C717F4716EA361C00893043 /* Make10Sprites.pvr.ccz in Resources */,
 				3C717F4916EA650000893043 /* Default.png in Resources */,
 				3C717F4B16EA663000893043 /* Default@2x.png in Resources */,
+				3CA1FA261947827500A6AB5C /* Icon-76.png in Resources */,
 				3C717F5216EA719600893043 /* Backgrounds-hd.plist in Resources */,
 				3C717F5316EA719600893043 /* Backgrounds-hd.pvr.ccz in Resources */,
 				3C717F5416EA719600893043 /* Backgrounds-ipadhd.plist in Resources */,
 				3C717F5516EA719600893043 /* Backgrounds-ipadhd.pvr.ccz in Resources */,
+				3CA1FA241947826400A6AB5C /* Icon-152.png in Resources */,
 				3C717F5616EA719600893043 /* Backgrounds.plist in Resources */,
 				3C717F5716EA719600893043 /* Backgrounds.pvr.ccz in Resources */,
 				3C717F5916EA97F000893043 /* Default-568h@2x.png in Resources */,
+				3CA1FA201947826400A6AB5C /* Icon-40.png in Resources */,
 				3C717F5C16EA993600893043 /* Default@2x~ipad.png in Resources */,
 				3C717F5D16EA993600893043 /* Default~ipad.png in Resources */,
 				3CCA3EAA16EB68D100685600 /* sample.png in Resources */,
 				3CCA3EAB16EB68D100685600 /* valueMade.png in Resources */,
 				3CCA3EB116EB9A3B00685600 /* dots.png in Resources */,
+				3CA1FA211947826400A6AB5C /* Icon-80.png in Resources */,
 				3CCA3EB516EBF04E00685600 /* Icon-72@2x.png in Resources */,
 				3C49EFCA16EE32F2004DB39C /* iTunesArtwork in Resources */,
 				3C49EFCB16EE32F2004DB39C /* iTunesArtwork@2x in Resources */,
 				3CF78F2217353ED1008F4558 /* Localizable.strings in Resources */,
+				3CA1FA1A1947810B00A6AB5C /* Icon-120.png in Resources */,
 				3CF90E811766AA4D00CA78B5 /* coppa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
