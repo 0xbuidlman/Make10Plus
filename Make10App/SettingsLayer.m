@@ -109,15 +109,16 @@ CCSprite*          _home;
         /*
          * Starting level as a toggle
          */
+        CCMenuItemSprite* level0 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 0", nil)];
         CCMenuItemSprite* level1 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 1", nil)];
         CCMenuItemSprite* level2 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 2", nil)];
         CCMenuItemSprite* level3 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 3", nil)];
         CCMenuItemSprite* level4 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 4", nil)];
         CCMenuItemSprite* level5 = [Make10Util createToggleWithText:NSLocalizedString(@"Level 5", nil)];
         
-        _levelToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggled:) items:level1, level2, level3, level4, level5, nil];
+        _levelToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggled:) items:level0, level1, level2, level3, level4, level5, nil];
         NSNumber* level = [defaults objectForKey:PREF_START_LEVEL];
-        [_levelToggle setSelectedIndex:[level intValue] - 1];
+        [_levelToggle setSelectedIndex:[level intValue]];
         
         /*
          * Operation as a toggle
@@ -199,7 +200,7 @@ CCSprite*          _home;
     if (toggle == _challengeToggle) {
         [defaults setInteger:[_challengeToggle selectedIndex] forKey:PREF_CHALLENGE_TYPE];
     } else if (toggle == _levelToggle) {
-        [defaults setInteger:[_levelToggle selectedIndex] + 1 forKey:PREF_START_LEVEL];
+        [defaults setInteger:[_levelToggle selectedIndex] forKey:PREF_START_LEVEL];
 //    } else if (toggle == _operationToggle) {
 //        [defaults setInteger:[_operationToggle selectedIndex] forKey:PREF_OPERATION];
     } else if (toggle == _styleToggle) {

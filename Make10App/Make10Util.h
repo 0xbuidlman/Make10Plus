@@ -42,6 +42,10 @@ static float const LAYER_TRANS_TIME = 0.5f;
 static float const SPRITE_SCALE_TIME = 0.1f;
 
 /**
+ * The duration between wall risings for new level of 0 (early beginner)
+ */
+static float const BEGINNER_WALL_SPEED = 40;
+/**
  * The duration between wall risings for level 1
  */
 static float const SLOWEST_WALL_SPEED = 20;

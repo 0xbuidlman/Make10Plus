@@ -36,7 +36,18 @@
 
 -(void) initializeProperties {
     self.tilesRemoved = 0;
-    self.pointValue = self.level * 10;
+    if (self.level == 0) {
+        /*
+         * New 0 level added to be extra slow for early beginners 
+         */
+        self.pointValue = 10;
+        self.wallTime = BEGINNER_WALL_SPEED;
+        
+        NSLog(@"wallTime = %d", self.wallTime);
+        return;
+    } else {
+        self.pointValue = self.level * 10;
+    }
     /*
      * If speed challenge, then
      * speed increases with every level if the challenge type is speed
