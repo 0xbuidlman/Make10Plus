@@ -103,6 +103,13 @@ img {
   height:auto;
 }
 
+img.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 18px;
+}
+
 #badge {
     position: absolute;
     right: 0px;
