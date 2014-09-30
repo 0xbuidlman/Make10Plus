@@ -171,6 +171,7 @@ CCSprite*          _home;
         
         int pickerWidth = 100;
         _makeValuePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(x - pickerWidth / 2, [Make10Util getMarginTop] + [Make10Util getUpperLabelPadding] * 2 + score.contentSize.height, pickerWidth, 300)];
+        _makeValuePicker.opaque = YES;
         _makeValuePicker.delegate = self;
         _makeValuePicker.showsSelectionIndicator = YES;
         _makeValuePicker.hidden = YES;
@@ -213,8 +214,16 @@ CCSprite*          _home;
     [[SimpleAudioEngine sharedEngine] playEffect:@"click.m4a"];
     if (_makeValuePicker.hidden) {
         _makeValuePicker.hidden = NO;
+        _makeValueToggle.visible = NO;
+        _levelToggle.visible = NO;
+        _challengeToggle.visible = NO;
+        _styleToggle.visible = NO;
     } else {
         _makeValuePicker.hidden = YES;
+        _makeValueToggle.visible = YES;
+        _levelToggle.visible = YES;
+        _challengeToggle.visible = YES;
+        _styleToggle.visible = YES;
     }
 }
 
@@ -231,10 +240,23 @@ CCSprite*          _home;
 	return [_makeValueArray count];
 }
 
--(NSString*) pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	
-	return [_makeValueArray objectAtIndex:row];
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setOpaque:YES];
+    label.backgroundColor = [UIColor colorWithRed:177.0f/255.0f green:209.0f/255.0f blue:51.0f/255.0f alpha:1.0f];
+//    label.backgroundColor = [UIColor colorWithRed:242.0f/255.0f green:183.0f/255.0f blue:5.0f/255.0f alpha:1.0f];
+//    label.backgroundColor = [UIColor colorWithRed:242.0f/255.0f green:214.0f/255.0f blue:130.0f/255.0f alpha:1.0f];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont fontWithName:@"American Typewriter" size:36];
+    label.text = [_makeValueArray objectAtIndex:row];
+    return label;
 }
+
+//-(NSString*) pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//	
+//	return [_makeValueArray objectAtIndex:row];
+//}
 
 -(void) pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 
@@ -274,7 +296,12 @@ CCSprite*          _home;
 -(void) ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
     
     _makeValuePicker.hidden = YES;
-
+    _makeValueToggle.visible = YES;
+    _makeValueToggle.visible = YES;
+    _levelToggle.visible = YES;
+    _challengeToggle.visible = YES;
+    _styleToggle.visible = YES;
+    
     if ([Make10Util isSpriteTouched:_home touches:touches]) {
     
         [Make10Util touchedSprite:_home target:self selector:@selector(homeAction)];
