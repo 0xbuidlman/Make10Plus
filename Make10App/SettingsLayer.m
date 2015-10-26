@@ -135,9 +135,12 @@ CCSprite*          _home;
          * Challenge type as a toggle 
          */
         CCMenuItemSprite* buttonSpeed = [Make10Util createToggleWithText:NSLocalizedString(@"Speed increases", nil)];
+        CCMenuItemSprite* buttonTotalEasy = [Make10Util createToggleWithText:NSLocalizedString(@"Sums 5-10", nil)];
+        CCMenuItemSprite* buttonTotalMed = [Make10Util createToggleWithText:NSLocalizedString(@"Sums 5-20", nil)];
         CCMenuItemSprite* buttonTotal = [Make10Util createToggleWithText:NSLocalizedString(@"Sum changes", nil)];
-
-        _challengeToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggled:) items:buttonSpeed, buttonTotal, nil];
+        
+        _challengeToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggled:) items:buttonSpeed, buttonTotal,
+                            buttonTotalEasy, buttonTotalMed, nil];
         
         NSNumber* challenge = [defaults objectForKey:PREF_CHALLENGE_TYPE];
         [_challengeToggle setSelectedIndex:[challenge intValue]];

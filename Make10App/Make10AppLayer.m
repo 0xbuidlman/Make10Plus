@@ -506,9 +506,10 @@ Progress*   _progressBar;
          */
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         NSNumber* challengeType = [defaults objectForKey:PREF_CHALLENGE_TYPE]; //default set in IntroLayer
+        int challengeTypeInt = [challengeType intValue];
         
-        if (PREF_CHALLENGE_TYPE_CHANGING == [challengeType intValue]) {
-            _makeValue = [Make10Util genRandomMakeValue:_makeValue];
+        if (PREF_CHALLENGE_TYPE_SPEED != challengeTypeInt) {
+            _makeValue = [Make10Util genRandomMakeValue:_makeValue challengeType:challengeTypeInt];
         }
         
         [self showLevelLayerWithPause:NO];

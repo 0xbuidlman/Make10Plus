@@ -316,12 +316,16 @@ static int   _progressPadding = 2;
 //    return multMakeValues;
 //}
 
-+(int) genRandomMakeValue:(int)currentMakeValue {
++(int) genRandomMakeValue:(int)currentMakeValue challengeType:(int)challengeType {
     NSArray* makeValuesArray = [self getMakeValuesArray];
     int randomIndex = arc4random() % [makeValuesArray count];
     int newMakeValue = [[makeValuesArray objectAtIndex:randomIndex] intValue];
     if (newMakeValue == currentMakeValue) {
-        return [self genRandomMakeValue:currentMakeValue];
+        return [self genRandomMakeValue:currentMakeValue challengeType:challengeType];
+    } else if (PREF_CHALLENGE_TYPE_CHANGING_MEDIUM == challengeType && newMakeValue > 20) {
+        return [self genRandomMakeValue:currentMakeValue challengeType:challengeType];
+    } else if (PREF_CHALLENGE_TYPE_CHANGING_EASY == challengeType && newMakeValue > 10) {
+        return [self genRandomMakeValue:currentMakeValue challengeType:challengeType];
     }
 
     return newMakeValue;

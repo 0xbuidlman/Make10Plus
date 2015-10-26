@@ -95,9 +95,21 @@ static NSString* const PREF_CHALLENGE_TYPE = @"CHALLENGE_TYPE";
 static int const PREF_CHALLENGE_TYPE_SPEED = 0;
 
 /**
- * Preference for the challenge type of changing sums or products
+ * Preference for the challenge type of changing sums any
  */
 static int const PREF_CHALLENGE_TYPE_CHANGING = 1;
+
+/**
+ * Preference for the challenge type of changing sums easy
+ * (5 - 10)
+ */
+static int const PREF_CHALLENGE_TYPE_CHANGING_EASY = 2;
+
+/**
+ * Preference for the challenge type of changing sums medium
+ * (5 - 20)
+ */
+static int const PREF_CHALLENGE_TYPE_CHANGING_MEDIUM = 3;
 
 /**
  * Preference for tile style
@@ -258,9 +270,10 @@ static int const TAG_MAKE10_APP_LAYER = 5;
 /**
  * Based on the possible make values, return one
  * of them randomly that is not the same as
- * the current make value
+ * the current make value that fits with the challengeType
  * @param currentMakeValue int
+ * @param challengeType int
  */
-+(int) genRandomMakeValue:(int)currentMakeValue;
++(int) genRandomMakeValue:(int)currentMakeValue challengeType:(int)challengeType;
 
 @end
