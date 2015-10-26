@@ -214,13 +214,12 @@ static CCFileUtils *fileUtils = nil;
 
 - (void) buildSearchResolutionsOrder
 {
-    NSLog(@"BBBEEEEESSSSSSSSSSS buildSearchResolutionsOrder");
 	NSInteger device = [[CCConfiguration sharedConfiguration] runningDevice];
 	[_searchResolutionsOrder removeAllObjects];
 	
 #if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
 	if (device == CCDeviceiPadRetinaDisplay)
-    {NSLog(@"device == CCDeviceiPadRetinaDisplay");
+    {
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPadHD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPad];
 		if( _enableiPhoneResourcesOniPad ) {
@@ -229,7 +228,7 @@ static CCFileUtils *fileUtils = nil;
 		}
 	}
 	else if (device == CCDeviceiPad)
-	{NSLog(@"device == CCDeviceiPad");
+	{
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPad];
 		if( _enableiPhoneResourcesOniPad ) {
 			[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5HD];
@@ -238,7 +237,7 @@ static CCFileUtils *fileUtils = nil;
 	}
 #if __CC_PLATFORM_IOS
 	else if (device == CCDeviceiPhone6Plus)
-	{NSLog(@"device == CCDeviceiPhone6Plus");
+	{
 		// Terrible, terrible iPhone 6+ hack.
 		[self setiPadContentScaleFactor:2.0];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPadHD];
@@ -250,29 +249,23 @@ static CCFileUtils *fileUtils = nil;
 	}
 #endif
 	else if (device == CCDeviceiPhone5RetinaDisplay || device == CCDeviceiPhone6)
-	{NSLog(@"device == CCDeviceiPhone5RetinaDisplay || device == CCDeviceiPhone6");
-        if (device == CCDeviceiPhone5RetinaDisplay) {
-                NSLog(@"device == CCDeviceiPhone5RetinaDisplay");
-        } else if (device == CCDeviceiPhone6) {
-                NSLog(@"device == CCDeviceiPhone6");
-        }
+	{
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5HD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone];
 	}
 	else if (device == CCDeviceiPhoneRetinaDisplay)
-	{NSLog(@"device == CCDeviceiPhoneRetinaDisplay");
-		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
+	{		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone];
 	}
 	else if (device == CCDeviceiPhone5)
-	{NSLog(@"device == CCDeviceiPhone5");
+	{
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone];
 	}
 	else if (device == CCDeviceiPhone)
-	{NSLog(@"device == CCDeviceiPhone");
+	{
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone];
 	}
 	

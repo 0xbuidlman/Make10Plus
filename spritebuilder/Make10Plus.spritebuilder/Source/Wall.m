@@ -75,7 +75,7 @@ NSMutableArray* _tiles;
      * Move all the tiles up except for the last one.
      * Do the last one with the callback at the end of the function
      */
-    for (int index = 0, len = [tiles count]; index < len; index++) {
+    for (NSUInteger  index = 0, len = [tiles count]; index < len; index++) {
         TileNode* tile = [tiles objectAtIndex:index];
         
         id actionMove = [CCActionMoveTo actionWithDuration:WALL_TRANS_TIME position:[self getPointInGrid:tile row:tile.row col:tile.col]];
@@ -115,7 +115,7 @@ NSMutableArray* _tiles;
     /*
      * If too many rows, splice off
      */
-    int size = [_tiles count];
+    NSUInteger  size = [_tiles count];
     if (size > MAX_ROWS) {
 //        NSMutableArray* extraTileRow = [_tiles objectAtIndex:MAX_ROWS];
 //        [extraTileRow release];

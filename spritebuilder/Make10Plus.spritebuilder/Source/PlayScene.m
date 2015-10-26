@@ -168,9 +168,24 @@ TileNode*   _knockedWallTile;
     NSLog(@"r = %d", r);
     [_boyReady setVisible:randomBool];
     [_girlReady setVisible:!randomBool];
+    [_levelLbl setFontSize:30.0f]; //reset in case it was changed
     
     if (pause) {
         [_levelLbl setString:[NSString stringWithFormat:@"Level %d\npaused", _score.level]];
+        /*
+         * If 2 digits
+         * we need to make the level label smaller
+         */
+        if (_score.level > 9) {
+            [_levelLbl setFontSize:24.0f];
+        } else if (_score.level > 99) {
+            /*
+             * If 3 digits
+             * we need to make the level label even smaller
+             */
+            [_levelLbl setFontSize:22.0f];
+        }
+
     } else {
         [_levelLbl setString:[NSString stringWithFormat:@"Level\n%d", _score.level]];
     }
@@ -253,7 +268,7 @@ TileNode*   _knockedWallTile;
     
     [self setUserInteractionEnabled:NO];
     
-    int currentTileSpriteRunningActions = [_currentTile numberOfRunningActions];
+    NSUInteger currentTileSpriteRunningActions = [_currentTile numberOfRunningActions];
     //    NSLog(@"addWallRow currentTile.sprite numberOfRunningActions = %d, currentTile.row = %d, currentTile.col = %d", currentTileSpriteRunningActions, _currentTile.row, _currentTile.col);
     
     if (currentTileSpriteRunningActions > 0 && _currentTile.row > 0) {
@@ -301,13 +316,13 @@ TileNode*   _knockedWallTile;
  */
 -(void) createNextTile {
     NSMutableArray* possibles = [_wall getPossibles];
-    int size = [possibles count];
+    NSUInteger size = [possibles count];
     int value;
     if (size > 1) {
         int randIndex = (arc4random() % ([possibles count] - 1));
-        value = _makeValue - [[possibles objectAtIndex:randIndex] integerValue];
+        value = _makeValue - [[possibles objectAtIndex:randIndex] intValue];
     } else if (size == 1) {
-        value = _makeValue - [[possibles objectAtIndex:0] integerValue];
+        value = _makeValue - [[possibles objectAtIndex:0] intValue];
     } else {
         value = [self genRandomValue];
     }

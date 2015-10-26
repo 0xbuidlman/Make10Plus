@@ -66,7 +66,7 @@ UISwipeGestureRecognizer* _swipeLeft;
         /*
          * Figure out if it is on the leaderboard
          */
-        if (score >= hi) {
+        if (score == hi) {
             
             [_highScoreLbl setString:@"Congratulations!\nThe top score!"];
             //if it's = don't do anything, no need to push other scores down or kids might feel bad

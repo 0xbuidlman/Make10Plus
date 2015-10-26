@@ -140,7 +140,7 @@ UISwipeGestureRecognizer* _swipeLeft;
 }
 
 -(void) setMakeValueUI {
-    for (int i = 0, len = [_makeValueArray count]; i < len; i++) {
+    for (NSUInteger  i = 0, len = [_makeValueArray count]; i < len; i++) {
         CCButton* btn = [_makeValueArray objectAtIndex:i];
         [btn setSelected:([btn.name intValue] == _makeValue)];
     }
@@ -149,7 +149,7 @@ UISwipeGestureRecognizer* _swipeLeft;
 }
 
 -(void) setStartingLevelUI {
-    for (int i = 0, len = [_levelArray count]; i < len; i++) {
+    for (NSUInteger i = 0, len = [_levelArray count]; i < len; i++) {
         CCButton* btn = [_levelArray objectAtIndex:i];
         [btn setSelected:([btn.name intValue] == _level)];
     }
@@ -159,7 +159,7 @@ UISwipeGestureRecognizer* _swipeLeft;
 }
 
 -(void) setChallengeTypeUI {
-    for (int i = 0, len = [_challengeTypeArray count]; i < len; i++) {
+    for (NSUInteger  i = 0, len = [_challengeTypeArray count]; i < len; i++) {
         CCButton* btn = [_challengeTypeArray objectAtIndex:i];
         [btn setSelected:([btn.name intValue] == _challengeType)];
     }
@@ -169,7 +169,7 @@ UISwipeGestureRecognizer* _swipeLeft;
 }
 
 -(void) setStyleUI {
-    for (int i = 0, len = [_styleArray count]; i < len; i++) {
+    for (NSUInteger  i = 0, len = [_styleArray count]; i < len; i++) {
         CCButton* btn = [_styleArray objectAtIndex:i];
         [btn setSelected:([btn.name intValue] == _style)];
     }

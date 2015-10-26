@@ -124,7 +124,6 @@ PlayScene* _playScene;
 -(void) tilePressed {
 
     NSLog(@"tilePressed! whoami: %@", self);
-    NSLog(@"tile's userInteractionEnabled %hhd", [_tileBtn isUserInteractionEnabled]);
 
     [[OALSimpleAudio sharedInstance] playEffect:@"click.m4a"];
     
