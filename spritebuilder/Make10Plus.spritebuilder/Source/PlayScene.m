@@ -165,7 +165,7 @@ TileNode*   _knockedWallTile;
      */
     int r = arc4random() % 4 + 1;
     BOOL randomBool = r > 2;
-    NSLog(@"r = %d", r);
+//    NSLog(@"r = %d", r);
     [_boyReady setVisible:randomBool];
     [_girlReady setVisible:!randomBool];
     [_levelLbl setFontSize:30.0f]; //reset in case it was changed

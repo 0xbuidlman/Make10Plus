@@ -24,7 +24,7 @@
 
 
 -(void) didLoadFromCCB {
-    NSLog(@"Progress.didLoadFromCCB");
+//    NSLog(@"Progress.didLoadFromCCB");
     
     CCSprite* sprite = [CCSprite spriteWithImageNamed:@"sprites/progress.png"];
 
@@ -44,7 +44,7 @@
 
 
 -(void) startWithDuration:(int)duration target:(id)target callback:(SEL)callback {
-    NSLog(@"Progress.startWithDuration");
+//    NSLog(@"Progress.startWithDuration");
     id actionScaleDone = [CCActionCallFunc actionWithTarget:target selector:callback];
 	CCActionProgressFromTo* progressToFull = [CCActionProgressFromTo actionWithDuration:duration from:0 to:100];
 	CCActionSequence *asequence = [CCActionSequence actions:progressToFull, actionScaleDone, nil];
