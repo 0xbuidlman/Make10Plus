@@ -34,6 +34,10 @@ Score*      _score;
 TileNode*   _nextTile;
 TileNode*   _currentTile;
 TileNode*   _knockedWallTile;
+int         _lastRandomMakeValue;
+int         _nextLastRandomMakeValue;
+//int         _lastRandomPossiblesIndex;
+//int         _nextLastRandomPossiblesIndex;
 
 @implementation PlayScene
 
@@ -52,6 +56,10 @@ TileNode*   _knockedWallTile;
     [self setUserInteractionEnabled:YES];
     
     [self showLevelLayerWithPause:NO];
+    
+    _lastRandomMakeValue = 1;
+    _nextLastRandomMakeValue = 0;
+//    _lastRandomPossiblesIndex = 1;
     
 }
 
@@ -214,9 +222,18 @@ TileNode*   _knockedWallTile;
 
 /**
  * Generate a random value between 1 and the makeValue
+ * and it has to be different from the last 2 randomly generated
+ * values to give the wall some variety
  */
 -(int) genRandomValue {
-    return (arc4random() % (_makeValue - 1)) + 1;
+    int val = (arc4random() % (_makeValue - 1)) + 1;
+    if (val == _nextLastRandomMakeValue || val == _lastRandomMakeValue) {
+        return [self genRandomValue];
+    }
+    
+    _nextLastRandomMakeValue = _lastRandomMakeValue;
+    _lastRandomMakeValue = val;
+    return val;
 }
 
 /**
@@ -310,20 +327,36 @@ TileNode*   _knockedWallTile;
     
 }
 
+/**
+ * Generate a random index of possible
+ */
+-(int) genRandomPossibleIndex:(NSMutableArray*)possibles currentTileValue:(int)currentTileValue {
+    NSUInteger size = [possibles count];
+    int randIndex = (arc4random() % (size - 1));
+//    NSLog(@"genRandomPossibleIndex possibles count size = %d;\nrandIndex before conditions = %d;\n_lastRandomPossiblesIndex = %d", size, randIndex, _lastRandomPossiblesIndex);
+    
+    if (size > 2 && [[possibles objectAtIndex:randIndex] intValue] == currentTileValue) {
+        return [self genRandomPossibleIndex:possibles currentTileValue:currentTileValue];
+    }
+    return randIndex;
+}
+
 
 /**
  * Create and place the next tile
  */
 -(void) createNextTile {
-    NSMutableArray* possibles = [_wall getPossibles];
+    NSMutableArray* possibles = [_wall getUniquePossibles:_makeValue];
     NSUInteger size = [possibles count];
     int value;
     if (size > 1) {
-        int randIndex = (arc4random() % ([possibles count] - 1));
-        value = _makeValue - [[possibles objectAtIndex:randIndex] intValue];
+        int randIndex = [self genRandomPossibleIndex:possibles currentTileValue:_currentTile.value];
+        value = [[possibles objectAtIndex:randIndex] intValue];
+        
     } else if (size == 1) {
-        value = _makeValue - [[possibles objectAtIndex:0] intValue];
+        value = [[possibles objectAtIndex:0] intValue];
     } else {
+        //should really ever happen b/c leveling up, but a safety valve.
         value = [self genRandomValue];
     }
     

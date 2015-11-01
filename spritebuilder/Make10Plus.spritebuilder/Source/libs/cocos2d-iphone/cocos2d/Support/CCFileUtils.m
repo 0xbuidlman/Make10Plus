@@ -239,7 +239,7 @@ static CCFileUtils *fileUtils = nil;
 	else if (device == CCDeviceiPhone6Plus)
 	{
 		// Terrible, terrible iPhone 6+ hack.
-		[self setiPadContentScaleFactor:2.0];
+		[self setiPadContentScaleFactor:1.5];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPadHD];
 		
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5HD];

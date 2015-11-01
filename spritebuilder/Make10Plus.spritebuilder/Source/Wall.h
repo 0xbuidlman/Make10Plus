@@ -92,6 +92,10 @@ static int const ACTION_TAG_WALL_UP = 3;
  */
 -(NSMutableArray*) getPossibles;
 /**
+ * Get up to 2 * MAX_COLS of unique possible next tile values
+ */
+-(NSMutableArray*) getUniquePossibles:(int)makeValue;
+/**
  * Return the tile at the given location or nil if none
  */
 -(TileNode*) whichTileAtLocation:(CGPoint)location;

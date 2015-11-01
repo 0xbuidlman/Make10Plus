@@ -236,6 +236,7 @@ NSMutableArray* _tiles;
             if ([tileRow objectAtIndex:j] != [NSNull null]) {
                 TileNode* tile = [tileRow objectAtIndex:j];
                 
+//                NSLog(@"getPossibles adding tile.value = %d to array", tile.value);
                 [possibles addObject:[NSNumber numberWithInt:tile.value]];
                 if ([possibles count] > MAX_COLS * 2) {
                     return possibles;
@@ -245,6 +246,29 @@ NSMutableArray* _tiles;
     }
     return possibles;
 }
+
+-(NSMutableArray*) getUniquePossibles:(int)makeValue {
+    NSMutableArray* possibles = [NSMutableArray array];
+    for (int i = MAX_ROWS - 1; i >= 0; i--) {
+        NSMutableArray* tileRow = [_tiles objectAtIndex:i];
+        for (int j = 0; j < MAX_COLS; j++) {
+            if ([tileRow objectAtIndex:j] != [NSNull null]) {
+                TileNode* tile = [tileRow objectAtIndex:j];
+                
+                int possibleValue = makeValue - tile.value;
+                if (![possibles containsObject:[NSNumber numberWithInt:possibleValue]]) {
+//                    NSLog(@"getUniquePossibles adding possibleValue = %d to array", possibleValue);
+                    [possibles addObject:[NSNumber numberWithInt:possibleValue]];
+                    if ([possibles count] > MAX_COLS * 2) {
+                        return possibles;
+                    }
+                }
+            }
+        }
+    }
+    return possibles;
+}
+
 
 -(TileNode*) whichTileAtLocation:(CGPoint)location {
 //    NSLog(@"Wall.whichTileAtLocation");

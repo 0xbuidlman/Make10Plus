@@ -53,7 +53,7 @@ static float const SPRITE_SCALE_TIME = 0.1f;
 /**
  * The duration between wall risings for new level of 0 (early beginner)
  */
-static float const BEGINNER_WALL_SPEED = 40;
+static float const BEGINNER_WALL_SPEED = 50;
 /**
  * The duration between wall risings for level 1
  */
@@ -148,7 +148,7 @@ static NSString* const PREF_HIGH_SCORE2 = @"HIGH_SCORE2";
 /**
  * Preference for the local 3rd high score
  */
-static NSString* const PREF_HIGH_SCORE3 = @"HIGH_SCORE2";
+static NSString* const PREF_HIGH_SCORE3 = @"HIGH_SCORE3";
 
 /**
  * Preference for the local my score
