@@ -237,15 +237,17 @@ static CCFileUtils *fileUtils = nil;
 	}
 #if __CC_PLATFORM_IOS
 	else if (device == CCDeviceiPhone6Plus)
-	{
-		// Terrible, terrible iPhone 6+ hack.
-		[self setiPadContentScaleFactor:1.5];
+    {
+//		// Terrible, terrible iPhone 6+ hack.
+		[self setiPadContentScaleFactor:2.0];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPadHD];
 		
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5HD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone];
+        
+        
 	}
 #endif
 	else if (device == CCDeviceiPhone5RetinaDisplay || device == CCDeviceiPhone6)

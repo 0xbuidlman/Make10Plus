@@ -75,7 +75,7 @@ NSMutableArray* _tiles;
      * Move all the tiles up except for the last one.
      * Do the last one with the callback at the end of the function
      */
-    for (int index = 0, len = [tiles count]; index < len; index++) {
+    for (NSUInteger index = 0, len = [tiles count]; index < len; index++) {
         Tile* tile = [tiles objectAtIndex:index];
         
         id actionMove = [CCMoveTo actionWithDuration:WALL_TRANS_TIME position:[self getPointInGrid:tile row:tile.row col:tile.col]];

@@ -85,13 +85,13 @@ CCSprite*          _home;
         NSNumber* makeValue = [defaults objectForKey:PREF_MAKE_VALUE]; //default set in IntroLayer
 
         //This will be the row to select
-        int makeValueRow = 0;
+        NSUInteger makeValueRow = 0;
 
         //This will be an NSString array copy of getMakeValuesArray (which contains NSNumber)
         NSArray* makeValuesNumbers = [Make10Util getMakeValuesArray];
         _makeValueArray = [[NSMutableArray alloc] initWithCapacity:[makeValuesNumbers count]];
 
-        for (int i = 0, len = [makeValuesNumbers count]; i < len; i++) {
+        for (NSUInteger i = 0, len = [makeValuesNumbers count]; i < len; i++) {
             
             int value = [(NSNumber*) [makeValuesNumbers objectAtIndex:i] intValue];
             [_makeValueArray addObject:[NSString stringWithFormat:@"%d", value]];
