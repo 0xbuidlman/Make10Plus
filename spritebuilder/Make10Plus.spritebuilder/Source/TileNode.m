@@ -46,7 +46,7 @@ PlayScene* _playScene;
     
     [self setTileNumberOrDot:value makeValue:makeValue];
     
-    [_tileBtn setUserInteractionEnabled:YES];
+    [self enableTileButton:YES];
 }
 
 /**
@@ -68,7 +68,7 @@ PlayScene* _playScene;
     
     [self setTileNumberOrDot:value makeValue:makeValue];
     
-    [_tileBtn setUserInteractionEnabled:NO];
+    [self enableTileButton:NO];
 }
 
 -(void) setTileNumberOrDot:(int)value makeValue:(int)makeValue {
@@ -110,7 +110,12 @@ PlayScene* _playScene;
 }
 
 -(void) enableButton {
-    [_tileBtn setUserInteractionEnabled:YES];
+//    [self enableTileButton:YES];
+    //no need to do this here.  enableTileButton gets called from within PlayScene now
+}
+
+-(void) enableTileButton:(BOOL)enable {
+    [_tileBtn setUserInteractionEnabled:enable];
     
 }
 
@@ -123,7 +128,7 @@ PlayScene* _playScene;
 #pragma mark spritebuilder events
 -(void) tilePressed {
 
-    NSLog(@"tilePressed! whoami: %@", self);
+//    NSLog(@"tilePressed! whoami: %@", self);
 
     [[OALSimpleAudio sharedInstance] playEffect:@"click.m4a"];
     

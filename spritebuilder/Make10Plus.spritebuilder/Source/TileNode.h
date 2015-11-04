@@ -63,4 +63,8 @@
  */
 -(void) transitionToPoint:(CGPoint)point target:(id)target callback:(SEL)callback actionTag:(int)actionTag;
 
+/**
+ * Enable or disable button
+ */
+-(void) enableTileButton:(BOOL)enable;
 @end

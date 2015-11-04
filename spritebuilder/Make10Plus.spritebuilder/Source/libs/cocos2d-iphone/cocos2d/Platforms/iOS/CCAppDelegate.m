@@ -307,9 +307,59 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
-	if([CCDirector sharedDirector].paused) {
-		[[CCDirector sharedDirector] resume];
-	}
+    
+    /*
+     * If the current scene has the LevelLayer (in Pause mode)
+     * then do not resume; all other cases go ahead and resume.
+     *
+     */
+    CCScene* currentScene = [[CCDirector sharedDirector] runningScene];
+    CCNode* layer = [currentScene getChildByName:@"LevelLayer" recursively:YES];
+    if (layer != nil) {
+        CCNode* startOverBtn = [currentScene getChildByName:@"StartOverBtn" recursively:YES];
+        //if in pause mode the startOver button is visible
+        if ([layer visible] && ![startOverBtn visible]) {
+            /*
+             * Level layer is visible, but it's just the Get Ready layer
+             * so we will just let this one run
+             */
+            if([CCDirector sharedDirector].paused) {
+                [[CCDirector sharedDirector] resume];
+            }
+        } else if (![layer visible]){
+            CCNode* resumeBtn = [currentScene getChildByName:@"ResumeBtn" recursively:YES];
+            CCNode* getReadyLbl = [currentScene getChildByName:@"GetReadyLbl" recursively:YES];
+            CCNode* pauseBtn = [currentScene getChildByName:@"PauseBtn" recursively:YES];
+            CCLabelTTF* levelLbl = (CCLabelTTF*) [currentScene getChildByName:@"LevelLbl" recursively:YES];
+            /*
+             * We are in the play scene
+             */
+            [layer setVisible:YES];
+            [startOverBtn setVisible:YES];
+            [resumeBtn setVisible:YES];
+            [getReadyLbl setVisible:NO];
+            [pauseBtn setVisible:NO];
+            NSString* levelString = [levelLbl string];
+            /*
+             * Add \npaused if not present
+             */
+            if (![levelString containsString:@"paused"]) {
+                levelString = [NSString stringWithFormat:@"%@\npaused", levelString];
+                [levelLbl setString:levelString];
+            }
+            
+            if(![CCDirector sharedDirector].paused) {
+                [[CCDirector sharedDirector] pause];
+            }
+            
+            
+        }
+        //else layer visible && startOverBtn visible -- let this stay paused
+    } else {
+        if([CCDirector sharedDirector].paused) {
+            [[CCDirector sharedDirector] resume];
+        }
+    }
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application

@@ -514,6 +514,20 @@ NSMutableArray* _tiles;
     tile.position = [self getPointInGrid:tile row:row col:col];
 }
 
+-(void) enableWall:(BOOL)enable {
+    for (int i = 0; i < MAX_ROWS; i++) {
+        NSMutableArray* tileRow = [_tiles objectAtIndex:i];
+        
+        for (int j = 0; j < MAX_COLS; j++) {
+            if ([tileRow objectAtIndex:j] != [NSNull null]) {
+                TileNode* tile = [tileRow objectAtIndex:j];
+                [tile enableTileButton:enable];
+            }
+        }
+    }
+    
+}
+
 -(void) dealloc {
     [self clearWall];
     

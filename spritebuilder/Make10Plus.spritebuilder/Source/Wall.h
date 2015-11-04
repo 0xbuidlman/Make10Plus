@@ -162,4 +162,9 @@ static int const ACTION_TAG_WALL_UP = 3;
  * @param col of the grid
  */
 -(void) snapTileToGrid:(TileNode*)tile row:(int)row col:(int)col;
+
+/**
+ * Enable or disable all the tiles in the wall
+ */
+-(void) enableWall:(BOOL)enable;
 @end

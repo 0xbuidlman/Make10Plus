@@ -36,8 +36,6 @@ TileNode*   _currentTile;
 TileNode*   _knockedWallTile;
 int         _lastRandomMakeValue;
 int         _nextLastRandomMakeValue;
-//int         _lastRandomPossiblesIndex;
-//int         _nextLastRandomPossiblesIndex;
 
 @implementation PlayScene
 
@@ -59,7 +57,6 @@ int         _nextLastRandomMakeValue;
     
     _lastRandomMakeValue = 1;
     _nextLastRandomMakeValue = 0;
-//    _lastRandomPossiblesIndex = 1;
     
 }
 
@@ -121,6 +118,7 @@ int         _nextLastRandomMakeValue;
     [_pauseBtn setVisible:YES];
     [_levelLayer setVisible:NO];
     [self setUserInteractionEnabled:YES];
+    [_wall enableWall:YES];
 
 }
 
@@ -146,6 +144,7 @@ int         _nextLastRandomMakeValue;
     
     [_progressBar startWithDuration:_score.wallTime target:self callback:@selector(addWallRow)];
     [self setUserInteractionEnabled:YES];
+    [_wall enableWall:YES];
     
     /*
      * If the wall has reached the max, show the game over scene after a slight delay
@@ -208,6 +207,7 @@ int         _nextLastRandomMakeValue;
     [_pauseBtn setVisible:NO];
     [_levelLayer setVisible:YES];
     [self setUserInteractionEnabled:NO];
+    [_wall enableWall:NO];
 }
 
 /**
@@ -284,6 +284,7 @@ int         _nextLastRandomMakeValue;
     //    NSLog(@"addWallRow");
     
     [self setUserInteractionEnabled:NO];
+    [_wall enableWall:NO];
     
     NSUInteger currentTileSpriteRunningActions = [_currentTile numberOfRunningActions];
     //    NSLog(@"addWallRow currentTile.sprite numberOfRunningActions = %d, currentTile.row = %d, currentTile.col = %d", currentTileSpriteRunningActions, _currentTile.row, _currentTile.col);
@@ -362,7 +363,7 @@ int         _nextLastRandomMakeValue;
     
     _nextTile = (TileNode*)[CCBReader load:@"TileNode"];
     [_nextTile initWithValue:value makeValue:_makeValue playScene:self];
-    [_nextTile setUserInteractionEnabled:NO];
+    
     [_playBg addChild:_nextTile];
 }
 
@@ -394,7 +395,7 @@ int         _nextLastRandomMakeValue;
  * @param wallTile TileNode in the wall that was pressed
  */
 -(void) tilePressedHandler:(TileNode*)wallTile {
-    [_nextTile setUserInteractionEnabled:NO];
+//    [_nextTile setUserInteractionEnabled:NO];
 
     
     if (wallTile.value + _currentTile.value == _makeValue) {
@@ -500,6 +501,7 @@ int         _nextLastRandomMakeValue;
      */
     if ([_score levelUp]) {
         [self setUserInteractionEnabled:NO];
+        [_wall enableWall:NO];
         
         [self stopAllActions];
         [_progressBar.timeBar stopAllActions];
@@ -534,7 +536,7 @@ int         _nextLastRandomMakeValue;
  * @param wallTile Tile that was touched
  */
 -(void) valueNotMade:(TileNode*) wallTile {
-    NSLog(@"valueNotMade wallTile=%@", wallTile);
+//    NSLog(@"valueNotMade wallTile=%@", wallTile);
     
     /*
      * It's not a match
@@ -577,7 +579,7 @@ int         _nextLastRandomMakeValue;
     int col = _currentTile.col;
     [_wall snapTileToGrid:_currentTile row:row col:col];
     [_wall addTile:_currentTile row:row col:col];
-    
+    [_currentTile enableTileButton:YES];
     /*
      * Create the next current tile
      */
@@ -606,6 +608,7 @@ int         _nextLastRandomMakeValue;
     [[OALSimpleAudio sharedInstance] playEffect:fileName];
     
     [self setUserInteractionEnabled:NO];
+    [_wall enableWall:NO];
     [self stopAllActions];
     [_progressBar.timeBar  stopAllActions];
     
