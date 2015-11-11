@@ -1,6 +1,6 @@
 Make10Plus
 ==========
 
-This is the source for the Make10Plus website.
+This is the source for the old Make10Plus website.
 
-Visit the site at **[bsiegal.github.com/Make10Plus](http://bsiegal.github.com/Make10Plus).**
+Visit the new site at **[siegalkids.com/make-10-plus](http://siegalkids.com/make-10-plus).**
