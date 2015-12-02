@@ -172,7 +172,7 @@ int         _nextLastRandomMakeValue;
      */
     int r = arc4random() % 4 + 1;
     BOOL randomBool = r > 2;
-//    NSLog(@"r = %d", r);
+    //    NSLog(@"r = %d", r);
     [_boyReady setVisible:randomBool];
     [_girlReady setVisible:!randomBool];
     [_levelLbl setFontSize:30.0f]; //reset in case it was changed
@@ -192,7 +192,7 @@ int         _nextLastRandomMakeValue;
              */
             [_levelLbl setFontSize:22.0f];
         }
-
+        
     } else {
         [_levelLbl setString:[NSString stringWithFormat:@"Level\n%d", _score.level]];
     }
@@ -202,8 +202,8 @@ int         _nextLastRandomMakeValue;
     [_startOverBtn setVisible:pause];
     
     [_getReadyLbl setVisible:!pause];
-
-
+    
+    
     [_pauseBtn setVisible:NO];
     [_levelLayer setVisible:YES];
     [self setUserInteractionEnabled:NO];
@@ -214,10 +214,11 @@ int         _nextLastRandomMakeValue;
  * Starts the progress bar indicating how long before you have to be ready to play next level
  */
 -(void) startLevelLayerProgress {
-
+    
     [_progressBar startWithDuration:GET_READY_TRANS_TIME target:self callback:@selector(prepNewLevel)];
-
+    
 }
+
 #pragma mark starting the game
 
 /**

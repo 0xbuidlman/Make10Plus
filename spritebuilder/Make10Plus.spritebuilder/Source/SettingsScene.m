@@ -22,12 +22,12 @@
 #import "Make10Util.h"
 #import "OALSimpleAudio.h"
 
-NSMutableArray*    _makeValueArray;
-NSMutableArray*    _levelArray;
-NSMutableArray*    _challengeTypeArray;
-NSMutableArray*    _challengeTypeStringsArray;
-NSMutableArray*    _styleArray;
-NSMutableArray*    _styleStringsArray;
+NSArray*    _makeValueArray;
+NSArray*    _levelArray;
+NSArray*    _challengeTypeArray;
+NSArray*    _challengeTypeStringsArray;
+NSArray*    _styleArray;
+NSArray*    _styleStringsArray;
 
 int _makeValue;
 int _level;
@@ -54,37 +54,40 @@ UISwipeGestureRecognizer* _swipeLeft;
     NSNumber* makeValue = [defaults objectForKey:PREF_MAKE_VALUE]; //default set in MainScene
     _makeValue = [makeValue intValue];
     
-    _makeValueArray = [[NSMutableArray alloc] initWithCapacity:18];
-    [_makeValueArray addObject:_btn5];
-    [_makeValueArray addObject:_btn6];
-    [_makeValueArray addObject:_btn7];
-    [_makeValueArray addObject:_btn8];
-    [_makeValueArray addObject:_btn9];
-    [_makeValueArray addObject:_btn10];
-    [_makeValueArray addObject:_btn11];
-    [_makeValueArray addObject:_btn12];
-    [_makeValueArray addObject:_btn13];
-    [_makeValueArray addObject:_btn14];
-    [_makeValueArray addObject:_btn15];
-    [_makeValueArray addObject:_btn16];
-    [_makeValueArray addObject:_btn17];
-    [_makeValueArray addObject:_btn18];
-    [_makeValueArray addObject:_btn19];
-    [_makeValueArray addObject:_btn20];
-    [_makeValueArray addObject:_btn60];
-    [_makeValueArray addObject:_btn100];
+    _makeValueArray = [NSArray arrayWithObjects:
+    _btn5,
+    _btn6,
+    _btn7,
+    _btn8,
+    _btn9,
+    _btn10,
+    _btn11,
+    _btn12,
+    _btn13,
+    _btn14,
+    _btn15,
+    _btn16,
+    _btn17,
+    _btn18,
+    _btn19,
+    _btn20,
+    _btn60,
+    _btn100,
+                       nil];
+    
     [self setMakeValueUI];
     
     /*
      * Starting level
      */
-    _levelArray = [[NSMutableArray alloc] initWithCapacity:6];
-    [_levelArray addObject:_lvl0];
-    [_levelArray addObject:_lvl1];
-    [_levelArray addObject:_lvl2];
-    [_levelArray addObject:_lvl3];
-    [_levelArray addObject:_lvl4];
-    [_levelArray addObject:_lvl5];
+    _levelArray = [NSArray arrayWithObjects:
+    _lvl0,
+    _lvl1,
+    _lvl2,
+    _lvl3,
+    _lvl4,
+    _lvl5,
+                   nil];
 
     
     NSNumber* level = [defaults objectForKey:PREF_START_LEVEL];
@@ -95,17 +98,19 @@ UISwipeGestureRecognizer* _swipeLeft;
      * Challenge type
      */
      
-    _challengeTypeArray = [[NSMutableArray alloc] initWithCapacity:4];
-    [_challengeTypeArray addObject:_btnChallenge0];
-    [_challengeTypeArray addObject:_btnChallenge1];
-    [_challengeTypeArray addObject:_btnChallenge2];
-    [_challengeTypeArray addObject:_btnChallenge3];
+    _challengeTypeArray = [NSArray arrayWithObjects:
+    _btnChallenge0,
+    _btnChallenge1,
+    _btnChallenge2,
+    _btnChallenge3,
+                           nil];
 
-    _challengeTypeStringsArray = [[NSMutableArray alloc] initWithCapacity:4];
-    [_challengeTypeStringsArray addObject:@"Speeds up"];
-    [_challengeTypeStringsArray addObject:@"Sums 5-10"];
-    [_challengeTypeStringsArray addObject:@"Sums 5-20"];
-    [_challengeTypeStringsArray addObject:@"Sums 5-100"];
+    _challengeTypeStringsArray = [NSArray arrayWithObjects:
+    @"Speeds up",
+    @"Sums 5-10",
+    @"Sums 5-20",
+    @"Sums 5-100",
+                                  nil];
 
     NSNumber* challenge = [defaults objectForKey:PREF_CHALLENGE_TYPE];
     _challengeType = [challenge intValue];
@@ -114,13 +119,15 @@ UISwipeGestureRecognizer* _swipeLeft;
     /*
      * Tile style
      */
-    _styleArray = [[NSMutableArray alloc] initWithCapacity:2];
-    [_styleArray addObject:_style0];
-    [_styleArray addObject:_style1];
+    _styleArray = [NSArray arrayWithObjects:
+    _style0,
+    _style1,
+                   nil];
 
-    _styleStringsArray = [[NSMutableArray alloc] initWithCapacity:2];
-    [_styleStringsArray addObject:@"Numbers"];
-    [_styleStringsArray addObject:@"Dots 1-10"];
+    _styleStringsArray = [NSArray arrayWithObjects:
+    @"Numbers",
+    @"Dots 1-10",
+                          nil];
     
     NSNumber* style = [defaults objectForKey:PREF_TILE_STYLE];
     _style = [style intValue];

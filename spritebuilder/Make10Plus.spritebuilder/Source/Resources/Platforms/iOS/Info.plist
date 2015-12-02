@@ -45,11 +45,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.15</string>
+	<string>1.0</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -96,16 +96,16 @@
 			<key>UILaunchImageSize</key>
 			<string>{320, 480}</string>
 		</dict>
-        <dict>
-            <key>UILaunchImageMinimumOSVersion</key>
-            <string>6.0</string>
-            <key>UILaunchImageName</key>
-            <string>Default-Portrait</string>
-            <key>UILaunchImageOrientation</key>
-            <string>Portrait</string>
-            <key>UILaunchImageSize</key>
-            <string>{768, 1024}</string>
-        </dict>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>6.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-Portrait</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{768, 1024}</string>
+		</dict>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
