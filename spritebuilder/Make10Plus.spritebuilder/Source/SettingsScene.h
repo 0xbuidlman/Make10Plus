@@ -19,11 +19,11 @@
 
 @interface SettingsScene : CCNode {
     
-    CCSlider* _makeValueSlider;
     CCButton* _makeValueBtn;
     CCButton* _levelBtn;
     CCButton* _challengeTypeBtn;
     CCButton* _styleBtn;
+    CCButton* _topScoresBtn;
     
     CCSprite* _makeValueLayer;
     
@@ -64,7 +64,15 @@
     CCButton* _style0;
     CCButton* _style1;
 
-    
+    CCSprite* _topScoresLayer;
+    CCLabelTTF* _hiScoreLbl;
+    CCLabelTTF* _hi2ScoreLbl;
+    CCLabelTTF* _hi3ScoreLbl;
+    CCButton* _btnUndo;
+    CCButton* _btnClearAll;
+    CCButton* _btnClear1;
+    CCButton* _btnClear2;
+    CCButton* _btnClear3;
 }
 
 @end

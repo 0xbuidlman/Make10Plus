@@ -34,6 +34,11 @@ int _level;
 int _challengeType;
 int _style;
 
+int _hi;
+int _hi2;
+int _hi3;
+
+
 /** UISwipeGestureRecognizers that need to be removed onExit */
 UISwipeGestureRecognizer* _swipeRight;
 UISwipeGestureRecognizer* _swipeLeft;
@@ -198,12 +203,23 @@ UISwipeGestureRecognizer* _swipeLeft;
 }
 
 -(void) swipeRight {
+    if ([_topScoresLayer visible] || [_makeValueLayer visible] || [_challengeTypeLayer visible] ||
+        [_startingLevelLayer visible] || [_styleLayer visible]) {
+        //do not do swipe if a layer is visible
+        return;
+    }
     
+
     [[OALSimpleAudio sharedInstance] playEffect:@"currentToWall.m4a"];
     [self homeAction];
 }
 
 -(void) swipeLeft {
+    if ([_topScoresLayer visible] || [_makeValueLayer visible] || [_challengeTypeLayer visible] ||
+        [_startingLevelLayer visible] || [_styleLayer visible]) {
+        //do not do swipe if a layer is visible
+        return;
+    }
     
     [[OALSimpleAudio sharedInstance] playEffect:@"currentToWall.m4a"];
     [self playAction];
@@ -219,7 +235,6 @@ UISwipeGestureRecognizer* _swipeLeft;
 }
 
 -(void) homeAction {
-    
     CCScene* scene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:SCENE_TRANS_TIME]];
     
@@ -260,7 +275,7 @@ UISwipeGestureRecognizer* _swipeLeft;
     [_makeValueLayer setVisible:NO];
     [_startingLevelLayer setVisible:NO];
     [_styleLayer setVisible:NO];
-
+    [_topScoresLayer setVisible:NO];
 }
 
 -(void) levelPressed {
@@ -323,6 +338,93 @@ UISwipeGestureRecognizer* _swipeLeft;
     [_styleLayer setVisible:NO];
     
 }
+
+-(NSNumberFormatter*) getNumberFormatter {
+    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setGroupingSeparator:[[NSLocale currentLocale] objectForKey:NSLocaleGroupingSeparator]];
+    [formatter setGroupingSize:3];
+    [formatter setAlwaysShowsDecimalSeparator:NO];
+    [formatter setUsesGroupingSeparator:YES];
+    return formatter;
+}
+
+-(void) topScoresPressed {
+    [[OALSimpleAudio sharedInstance] playEffect:@"click.m4a"];
+    
+    NSNumberFormatter* formatter = [self getNumberFormatter];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber* highScore = [defaults objectForKey:PREF_HIGH_SCORE];
+    NSNumber* highScore2 = [defaults objectForKey:PREF_HIGH_SCORE2];
+    NSNumber* highScore3 = [defaults objectForKey:PREF_HIGH_SCORE3];
+    _hi = [highScore intValue];
+    _hi2 = [highScore2 intValue];
+    _hi3 = [highScore3 intValue];
+    [_hiScoreLbl setString:[formatter stringFromNumber:highScore]];
+    [_hi2ScoreLbl setString:[formatter stringFromNumber:highScore2]];
+    [_hi3ScoreLbl setString:[formatter stringFromNumber:highScore3]];
+    
+    [_btnUndo setVisible:NO];
+    [_topScoresLayer setVisible:YES];
+    
+}
+
+-(void) saveClearTopScoresPressed {
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:_hi] forKey:PREF_HIGH_SCORE];
+    [defaults setObject:[NSNumber numberWithInt:_hi2] forKey:PREF_HIGH_SCORE2];
+    [defaults setObject:[NSNumber numberWithInt:_hi3] forKey:PREF_HIGH_SCORE3];
+    
+    [self settingsPressed];
+}
+
+-(void) undoPressed {
+    /*
+     * Behave as though viewing this layer for the first time
+     */
+    [self topScoresPressed];
+}
+
+-(void) clearPressed {
+    [[OALSimpleAudio sharedInstance] playEffect:@"click.m4a"];
+    NSNumberFormatter* formatter = [self getNumberFormatter];
+    [_hiScoreLbl setString:[formatter stringFromNumber:[NSNumber numberWithInt:_hi]]];
+    [_hi2ScoreLbl setString:[formatter stringFromNumber:[NSNumber numberWithInt:_hi2]]];
+    [_hi3ScoreLbl setString:[formatter stringFromNumber:[NSNumber numberWithInt:_hi3]]];
+
+    [_btnUndo setVisible:YES];
+}
+-(void) clearAllPressed {
+    _hi = 0;
+    _hi2 = 0;
+    _hi3 = 0;
+    
+    [self clearPressed];
+}
+
+-(void) clear1Pressed {
+    _hi = _hi2;
+    _hi2 = _hi3;
+    _hi3 = 0;
+    
+    [self clearPressed];
+}
+
+-(void) clear2Pressed {
+    _hi2 = _hi3;
+    _hi3 = 0;
+    
+    [self clearPressed];
+}
+
+-(void) clear3Pressed {
+    _hi3 = 0;
+    
+    [self clearPressed];
+}
+
 
 #pragma mark exit
 -(void) onExitTransitionDidStart {
